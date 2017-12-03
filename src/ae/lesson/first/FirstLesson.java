@@ -63,7 +63,10 @@ public class FirstLesson extends Lesson {
 
     protected static void task3() {
         Calculator c = new Calculator();
+
         c.addBinaryOperator("%", (a, b) -> a % b);
+        c.addBinaryOperator("^", Math::pow);
+
         c.run();
     }
 

@@ -44,13 +44,13 @@ public class Calculator implements Runnable, OperandReader {
 
     protected void handleInput() {
         final String operatorName = ConsoleHelpers.readNonEmptyString("Enter the operator: ");
-        final Optional<AbstractOperator> result = operators.stream().filter(o -> o.name.equals(operatorName)).findFirst();
+        final Optional<AbstractOperator> wrappedOperator = operators.stream().filter(o -> o.name.equals(operatorName)).findFirst();
 
-        if (!result.isPresent()) {
-            System.out.println("Unrecognized operator.");
+        if (!wrappedOperator.isPresent()) {
+            System.out.println("Unrecognized operator");
             handleInput();
         } else {
-            final AbstractOperator operator = result.get();
+            final AbstractOperator operator = wrappedOperator.get();
 
             if (operator.hasResult) System.out.println("Result = " + operator.handle());
             else operator.handle();
