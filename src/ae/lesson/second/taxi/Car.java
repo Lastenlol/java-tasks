@@ -1,6 +1,8 @@
 package ae.lesson.second.taxi;
 
-public class Car implements Pricing {
+import java.io.Serializable;
+
+public class Car implements Pricing, Serializable {
 
     String model;
 

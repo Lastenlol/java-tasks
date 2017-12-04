@@ -2,10 +2,11 @@ package ae.lesson.second.taxi;
 
 import ae.lesson.second.taxi.repository.Repository;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-public class TaxiStation implements Pricing {
+public class TaxiStation implements Pricing, Serializable {
 
     protected Repository<Car> carRepository = new Repository<>();
 

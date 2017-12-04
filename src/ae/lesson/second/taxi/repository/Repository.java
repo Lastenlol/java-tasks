@@ -1,5 +1,6 @@
 package ae.lesson.second.taxi.repository;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -7,7 +8,7 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class Repository<Entity> implements RepositoryInterface<Entity> {
+public class Repository<Entity> implements RepositoryInterface<Entity>, Serializable {
 
     protected List<Entity> items = new ArrayList<>();
 
