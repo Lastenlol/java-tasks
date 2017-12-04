@@ -1,4 +1,4 @@
-package ae.lesson;
+package ae.lesson.sixth;
 
 import ae.common.Lesson;
 import ae.lesson.second.taxi.TaxiStation;
