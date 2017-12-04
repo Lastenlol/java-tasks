@@ -30,16 +30,14 @@ public class ThirdLesson extends Lesson {
                 System.out.print(student.name + " (" + student.curriculum.title + ") – ");
                 System.out.print("Обучение " + (finished ? "не " : "") + "закончено.");
 
+                if (!finished) System.out.print("До окончания осталось ");
+                else System.out.print("После окончания прошло ");
+
                 final long duration = Math.abs(currentDate.getTime() - finishDate.getTime());
+                final TimeUnit ms = TimeUnit.MILLISECONDS;
+                final long days = ms.toDays(duration);
 
-                if (!finished) {
-                    System.out.print("До окончания осталось ");
-                } else {
-                    System.out.print("После окончания прошло ");
-                }
-
-                TimeUnit ms = TimeUnit.MILLISECONDS;
-                System.out.print(ms.toDays(duration) + "д " + ms.toHours(duration));
+                System.out.print((days > 0 ? days + "д. " : "") + ms.toHours(duration) + "ч.");
             });
         } else {
             // in details here
