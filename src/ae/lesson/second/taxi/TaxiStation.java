@@ -26,11 +26,7 @@ public class TaxiStation implements Pricing {
     public double getPrice() {
         return carRepository.findAll()
                 .stream()
-                .reduce(
-                        0.0,
-                        (sum, car) -> sum += car.getPrice(),
-                        (sum1, sum2) -> sum1 + sum2
-                );
+                .reduce(0.0, (sum, car) -> sum += car.getPrice(), (sum1, sum2) -> sum1 + sum2);
     }
 
 }
