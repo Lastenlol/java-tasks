@@ -3,6 +3,7 @@ package ae;
 import ae.common.Lesson;
 import ae.lesson.first.FirstLesson;
 import ae.lesson.second.SecondLesson;
+import ae.lesson.sixth.SixthLesson;
 import ae.lesson.third.ThirdLesson;
 
 public class Main {
@@ -11,10 +12,12 @@ public class Main {
         final Lesson firstLesson = new FirstLesson();
         final Lesson secondLesson = new SecondLesson();
         final Lesson thirdLesson = new ThirdLesson();
+        final Lesson sixthLesson = new SixthLesson();
 
         firstLesson.run();
         secondLesson.run();
         thirdLesson.run();
+        sixthLesson.run();
     }
 
 }

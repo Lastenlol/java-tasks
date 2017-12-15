@@ -4,10 +4,6 @@ import ae.common.Lesson;
 import ae.lesson.second.taxi.TaxiStation;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class SixthLesson extends Lesson {
 
@@ -16,11 +12,11 @@ public class SixthLesson extends Lesson {
     }
 
     protected static void task1() {
-        // создание и запись объекта
-
         TaxiStation station = new TaxiStation();
 
-        File fw = new File("demo.dat");
+        final String fileName = "station.dat";
+
+        File fw = new File(fileName);
         try {
             ObjectOutputStream ostream = new ObjectOutputStream(new FileOutputStream(fw));
 
@@ -30,7 +26,7 @@ public class SixthLesson extends Lesson {
             System.err.println(e);
         }
 
-        File fr = new File("demo.dat");
+        File fr = new File(fileName);
         try {
             ObjectInputStream istream = new ObjectInputStream(new FileInputStream(fr));
 
@@ -38,13 +34,13 @@ public class SixthLesson extends Lesson {
             istream.close();
             System.out.println(unknown);
         } catch (ClassNotFoundException ce) {
-            System.err.println(ce);
+            System.err.println(ce.toString());
             System.err.println("Класс не существует");
         } catch (FileNotFoundException fe) {
-            System.err.println(fe);
+            System.err.println(fe.toString());
             System.err.println("Файл не найден");
         } catch (IOException ioe) {
-            System.err.println(ioe);
+            System.err.println(ioe.toString());
             System.err.println("Ошибка доступа");
         }
     }

@@ -9,7 +9,7 @@ public class Schedule {
 
     protected final int[] hoursByDay = new int[daysInWeek];
 
-    Schedule() {
+    public Schedule() {
         Arrays.fill(hoursByDay, 0, hoursByDay.length - 1, defaultDayDuraion);
     }
 
