@@ -7,18 +7,20 @@ import java.io.Serializable;
 
 public class Car implements Pricing, Serializable {
 
-    public String model;
+    String model;
+    CarType type;
 
-    protected double price;
-    protected double fuelConsumption;
+    private double price;
+    private double fuelConsumption;
 
-    public Car(String model, double price, double fuelConsumption) throws InvalidPriceException, InvalidFuelConsumptionException {
+    public Car(String model, double price, double fuelConsumption, CarType type) throws InvalidPriceException, InvalidFuelConsumptionException {
         if (price < 0) throw new InvalidPriceException();
         if (fuelConsumption < 0) throw new InvalidFuelConsumptionException();
 
         this.model = model;
         this.price = price;
         this.fuelConsumption = fuelConsumption;
+        this.type = type;
     }
 
     public double getPrice() {
@@ -38,4 +40,5 @@ public class Car implements Pricing, Serializable {
         this.fuelConsumption = fuelConsumption;
         return this;
     }
+
 }
