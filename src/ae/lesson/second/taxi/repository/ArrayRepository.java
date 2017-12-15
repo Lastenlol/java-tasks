@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class ArrayRepository<Entity> implements ArrayRepositoryInterface<Entity>, Serializable {
 
-    protected ArrayCollection<Entity> items;
+    protected ArrayCollection<Entity> items = new ArrayCollection<>();
 
     public void add(Entity item) {
         items.add(item);

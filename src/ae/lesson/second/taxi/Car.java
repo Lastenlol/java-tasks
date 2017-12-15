@@ -41,4 +41,7 @@ public class Car implements Pricing, Serializable {
         return this;
     }
 
+    public String toString() {
+        return this.model + ", $" + price + ", fuel: " + fuelConsumption;
+    }
 }

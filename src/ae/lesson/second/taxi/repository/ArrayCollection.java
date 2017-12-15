@@ -1,18 +1,19 @@
 package ae.lesson.second.taxi.repository;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.NoSuchElementException;
 
-public class ArrayCollection<Item> implements Collection<Item> {
+public class ArrayCollection<Item> implements Collection<Item>, Serializable {
 
     class Iterator implements java.util.Iterator<Item> {
 
-        protected int current;
+        protected int current = 0;
 
         @Override
         public boolean hasNext() {
-            return current < items.length - 1;
+            return current < size;
         }
 
         @Override
@@ -113,7 +114,9 @@ public class ArrayCollection<Item> implements Collection<Item> {
 
     @Override
     public void clear() {
-        items = (Item[]) new Object[0];
+        size = 0;
+        capacity = defaultCapacity;
+        items = (Item[]) new Object[capacity];
     }
 
     protected void increaseCapacity() {

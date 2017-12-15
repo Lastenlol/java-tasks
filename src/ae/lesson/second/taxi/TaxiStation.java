@@ -1,11 +1,9 @@
 package ae.lesson.second.taxi;
 
 import ae.lesson.second.taxi.repository.ArrayRepository;
-import ae.lesson.second.taxi.repository.Repository;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
 
 public class TaxiStation implements Pricing, Serializable {
 
@@ -19,6 +17,10 @@ public class TaxiStation implements Pricing, Serializable {
 
     public void addCar(Car car) {
         carRepository.add(car);
+    }
+
+    public Collection<Car> getCars() {
+        return carRepository.findAll();
     }
 
     public Collection<Car> getSortedCarsByFuelConsumption() {

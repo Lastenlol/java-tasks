@@ -1,6 +1,8 @@
 package ae.lesson.second.taxi;
 
-public enum CarType {
+import java.io.Serializable;
+
+public enum CarType implements Serializable {
 
     MOTOR, TRUCK, BUS
 

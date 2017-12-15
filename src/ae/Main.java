@@ -1,6 +1,5 @@
 package ae;
 
-import ae.common.Lesson;
 import ae.lesson.first.FirstLesson;
 import ae.lesson.second.SecondLesson;
 import ae.lesson.sixth.SixthLesson;
@@ -9,15 +8,10 @@ import ae.lesson.third.ThirdLesson;
 public class Main {
 
     public static void main(String[] args) {
-        final Lesson firstLesson = new FirstLesson();
-        final Lesson secondLesson = new SecondLesson();
-        final Lesson thirdLesson = new ThirdLesson();
-        final Lesson sixthLesson = new SixthLesson();
-
-        firstLesson.run();
-        secondLesson.run();
-        thirdLesson.run();
-        sixthLesson.run();
+        new FirstLesson().run();
+        new SecondLesson().run();
+        new ThirdLesson().run();
+        new SixthLesson().run();
     }
 
 }

@@ -14,6 +14,12 @@ public class SecondLesson extends Lesson {
     }
 
     public void task1() {
+        TaxiStation station = mockData();
+        System.out.println(station.getPrice());
+        System.out.println(station.getSortedCarsByFuelConsumption());
+    }
+
+    public static TaxiStation mockData() {
         TaxiStation station = new TaxiStation();
 
         try {
@@ -24,8 +30,7 @@ public class SecondLesson extends Lesson {
             System.out.println("Invalid car data");
         }
 
-        System.out.println(station.getPrice());
-        System.out.println(station.getSortedCarsByFuelConsumption());
+        return station;
     }
 
 }

@@ -1,9 +1,11 @@
 package ae.lesson.sixth;
 
 import ae.common.Lesson;
+import ae.lesson.second.SecondLesson;
 import ae.lesson.second.taxi.TaxiStation;
 
 import java.io.*;
+import java.util.Arrays;
 
 public class SixthLesson extends Lesson {
 
@@ -12,36 +14,35 @@ public class SixthLesson extends Lesson {
     }
 
     protected static void task1() {
-        TaxiStation station = new TaxiStation();
+        TaxiStation station = SecondLesson.mockData();
 
-        final String fileName = "station.dat";
+        final String filePath = "station.dat";
 
-        File fw = new File(fileName);
+        File fw = new File(filePath);
         try {
             ObjectOutputStream ostream = new ObjectOutputStream(new FileOutputStream(fw));
 
             ostream.writeObject(station);
             ostream.close();
         } catch (IOException e) {
-            System.err.println(e);
+            System.err.println(e.toString());
         }
 
-        File fr = new File(fileName);
+        File fr = new File(filePath);
         try {
             ObjectInputStream istream = new ObjectInputStream(new FileInputStream(fr));
 
-            TaxiStation unknown = (TaxiStation) istream.readObject();
+            TaxiStation deserializedStation = (TaxiStation) istream.readObject();
             istream.close();
-            System.out.println(unknown);
+
+            System.out.println(deserializedStation);
+            System.out.println(Arrays.toString(deserializedStation.getCars().toArray()));
         } catch (ClassNotFoundException ce) {
-            System.err.println(ce.toString());
-            System.err.println("Класс не существует");
+            System.err.println("Class " + ce.getClass().getName() + " not found");
         } catch (FileNotFoundException fe) {
-            System.err.println(fe.toString());
-            System.err.println("Файл не найден");
+            System.err.println("File " + filePath + " not found");
         } catch (IOException ioe) {
             System.err.println(ioe.toString());
-            System.err.println("Ошибка доступа");
         }
     }
 
